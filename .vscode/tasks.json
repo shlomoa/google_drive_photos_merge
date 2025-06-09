@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Python Script",
+      "type": "shell",
+      "command": "python",
+      "args": ["google_drive_photos_merge.py", "<folder_to_scan>", "<output_html_file>", "--medias_only"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

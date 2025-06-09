@@ -1,0 +1,114 @@
+# Google Drive Photos Merge
+
+This project is designed to merge photos from Google Drive into a single folder or album. It is built using Python and provides functionality to authenticate with Google Drive, list photos, and perform the merging operation.
+
+## Features
+- Authenticate with Google Drive.
+- List photos from Google Drive.
+- Identify duplicate files in Google Drive based on matching file name and size.
+- Merge photos into a single folder or album.
+
+## Requirements
+- Python 3.8 or later
+- Required extensions:
+  - Python Extension for Visual Studio Code
+  - Python Environments Extension for Visual Studio Code
+
+## Setup
+1. Clone the repository.
+2. Install the required Python dependencies.
+3. Run the application.
+
+## Usage
+
+To use this project, follow these steps:
+
+1. Open a terminal and navigate to the project directory.
+2. Run the script with the following command:
+   ```bash
+   ./google_drive_photos_merge.py <folder_to_scan> <output_html_file>
+   ```
+   - `<folder_to_scan>`: The path to the folder containing the files you want to scan for duplicates.
+   - `<output_html_file>`: The path to the HTML file where the duplicate file paths will be saved.
+
+### Example
+
+Suppose you have a folder named `photos` in your home directory and you want to save the duplicate file paths to a file named `duplicates.html` in the same directory. You can run the script as follows:
+
+```bash
+./google_drive_photos_merge.py ~/photos ~/duplicates.html
+```
+
+If you want to analyze only media files (images and videos), use the `--medias_only` flag:
+
+```bash
+./google_drive_photos_merge.py ~/photos ~/duplicates.html --medias_only
+```
+
+After running the script, open `duplicates.html` in a web browser. The file will display each cluster of duplicate files in a separate table. Next to each file, there will be:
+
+- A **red delete button** to mark the file for deletion.
+- A **green keep button** to retain the file.
+
+At the top of the page, there will be a **Generate Cleanup Script** button. Clicking this button will generate a bash script (`cleanup.sh`) containing commands to delete the selected files.
+
+### Duplicate Identification
+
+The script identifies duplicate files based on their **file name** and **size**. This approach ensures that files with the same name and size are grouped together as duplicates.
+
+# Copilot Instructions for Google Drive Photos Merge Project
+
+## Project Overview
+This project is a Python script designed to identify duplicate files in a folder, generate an HTML report with options to delete or keep files, and create a cleanup script for deleting selected files. It supports filtering for media files only and provides progress indication during processing.
+
+## Key Features
+- **Duplicate Identification**: Based on file name and size.
+- **HTML Report**: Interactive report with delete/keep buttons and a "Generate Cleanup Script" button.
+- **Media File Filtering**: Option to analyze only media files (images and videos).
+- **Progress Indication**: Displays progress during duplicate identification.
+
+## Development Notes
+- The main script is `google_drive_photos_merge.py`.
+- The script uses `argparse` for command-line argument handling.
+- The HTML report includes JavaScript for interactivity.
+- Tasks are defined in `.vscode/tasks.json` for running the script with appropriate arguments.
+
+## Usage
+- Run the script using the following command:
+  ```bash
+  python google_drive_photos_merge.py <folder_to_scan> <output_html_file> [--medias_only]
+  ```
+- Replace `<folder_to_scan>` and `<output_html_file>` with the appropriate paths.
+- Use the `--medias_only` flag to filter for media files.
+
+## Debugging
+- Line breaks have been added to the generated HTML for better readability.
+- JavaScript issues with newline characters have been resolved by escaping them properly.
+
+## Generating and Using the Cleanup Script
+
+1. **Generate the Cleanup Script**:
+   - After running the script and reviewing the HTML report, click the **"Generate Cleanup Script"** button at the top of the report.
+   - This will download a file named `cleanup.sh` containing commands to delete the selected files.
+
+2. **Make the Script Executable**:
+   - On Linux/macOS/WSL:
+     ```bash
+     chmod +x cleanup.sh
+     ```
+   - On Windows (using WSL):
+     ```bash
+     chmod +x cleanup.sh
+     ```
+
+3. **Run the Script**:
+   - Execute the script to delete the selected files:
+     ```bash
+     ./cleanup.sh
+     ```
+
+> **Note**: Ensure you review the script before running it to confirm it contains the intended delete commands.
+
+## Additional Notes
+- Ensure Python 3.8 or later is installed.
+- The script is compatible with Windows and uses `pwsh.exe` as the default shell for terminal commands.
