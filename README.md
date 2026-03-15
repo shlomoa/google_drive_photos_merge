@@ -3,10 +3,18 @@
 ## ❗ Problem Description
 
 When using Google Drive to back up and sync photos across multiple devices or over time, it’s easy to end up with multiple copies of the same file. These duplicates often:
-- Have identical file names and sizes  
-- Live in different subfolders  
-- Make organizing your photo collection tedious and frustrating  
-- Waste valuable local storage space  
+
+<br><br><br>
+
+<img align="right" src="google_storage.png">
+
+- Have identical file names and sizes
+- Live in different subfolders
+- Make organizing your photo collection tedious and frustrating
+- Waste valuable local storage space
+
+<br clear="right">
+
 
 Traditional deduplication tools often require cloud API access, are platform-specific, or provide little control over what gets deleted. The goal here was to create a **local, lightweight, interactive tool** that gives you full visibility and control—without relying on any cloud services.
 
@@ -23,7 +31,7 @@ To successfully use this project, the following knowledge and environment setup 
   - [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac)  
   - [Linux Terminal](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)  
   - [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/)  
-- ✅ Comfortable opening `.html` files in a browser  
+- ✅ Comfortable opening `.html` files in a browser
 - ✅ (Optional) If running on Windows, familiarity with [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/)  
   - You can install it using:  
     ```powershell
